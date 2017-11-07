@@ -29,6 +29,11 @@ public class Card {
 		this.suit = suit;
 		this.rank = rank;
 	}
+	
+	public String printCard() {
+		String returnString = rank + " of " + suit;
+		return returnString;
+	}
 
 	public Suit getSuit() {
 		return suit;
@@ -44,6 +49,13 @@ public class Card {
 
 	public void setRank(Rank rank) {
 		this.rank = rank;
+	}
+	
+	public int value() {
+		if(rank.ordinal() <= 9) {
+			return rank.ordinal() + 1;
+		}
+		return 10;
 	}
 	
 }
