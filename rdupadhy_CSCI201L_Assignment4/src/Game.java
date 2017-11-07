@@ -8,6 +8,7 @@ public class Game {
 	private int currentPlayerIndex;
 	private Deck deck;
 	private Vector<Card> dealerCards;
+	private int round;
 	
 	public Game(String gamename) {
 		this.gamename = gamename;
@@ -16,6 +17,7 @@ public class Game {
 		numPlayers = 0;
 		deck = new Deck();
 		dealerCards = new Vector<Card>();
+		round = 1;
 	}
 	
 	public Game(String gamename, int numPlayers) {
@@ -26,6 +28,11 @@ public class Game {
 		deck = new Deck();
 		currentPlayerIndex = 0;
 		dealerCards = new Vector<Card>();
+		round = 1;
+	}
+	
+	public void updateRound() {
+		round++;
 	}
 	
 	public int dealerCardsValue() {
@@ -105,6 +112,14 @@ public class Game {
 
 	public void setDealerCards(Vector<Card> dealerCards) {
 		this.dealerCards = dealerCards;
+	}
+
+	public int getRound() {
+		return round;
+	}
+
+	public void setRound(int round) {
+		this.round = round;
 	}
 	
 }

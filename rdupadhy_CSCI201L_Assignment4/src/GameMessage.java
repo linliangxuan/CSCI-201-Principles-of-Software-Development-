@@ -29,6 +29,9 @@ public class GameMessage implements Serializable {
 		HIT_BUSTED_OTHER,
 		STAY_OR_HIT_UI,
 		DEALER_STAY_OR_HIT,
+		ROUND_END_PLAYER,
+		NEXT_ROUND,
+		GAME_END_ALL,
 		
 	}
 	private String message;

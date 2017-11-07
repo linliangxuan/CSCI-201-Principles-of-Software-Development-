@@ -440,6 +440,157 @@ private Map<GameServerThread, Integer> numPlayersMap;
 		allPlayersResponseMessage = new GameMessage(GameMessage.Type.DEALER_STAY_OR_HIT, allPlayersResponse);
 		emit(allPlayersResponseMessage, gameServerThread);
 		
+		Vector<Player> allPlayers = game.getPlayers();
+		boolean gameOver = false;
+		for(int i = 0; i < allPlayers.size(); i++) {
+			Player player = allPlayers.get(i);
+			roundEnd(player);
+			if(player.getChips() == 0) {
+				gameOver = true;
+			}
+		}
+		if(gameOver) {
+			gameOverMenu(receivedMessage, gameServerThread);
+		}
+		else {
+			int currentRound = game.getRound();
+			int newRound = currentRound + 1;
+			game.updateRound();
+			String allResponse = "ROUND " + newRound;
+			GameMessage allResponseMessage = new GameMessage(GameMessage.Type.NEXT_ROUND, allResponse);
+			emit(allResponseMessage, gameServerThread);
+			
+			String allDealerResponse = "Dealer is shuffling cards...";
+			game.shuffleDeck();
+			GameMessage allDealerResponseMessage= new GameMessage(GameMessage.Type.JOIN_ALL_PLAYERS, allDealerResponse);
+			emit(allDealerResponseMessage, gameServerThread);
+			
+			Player player1 = game.getPlayers().firstElement();
+			game.setCurrentPlayerIndex(0);
+			String player1Username = player1.getUsername();
+			int player1Chips = player1.getChips();
+			String player1Response = player1Username + ", it is your turn to make a bet. Your chips total is " + player1Chips;
+			GameMessage player1ResponseMessage = new GameMessage(GameMessage.Type.ASK_BET_PLAYER, player1Response);
+			GameServerThread player1GameServerThread = player1.getGameServerThread();
+			player1GameServerThread.sendMessage(player1ResponseMessage);
+			String remainingPlayersResponse = "It is " + player1Username + "'s turn to make a bet";
+			GameMessage remainingPlayersResponseMessage = new GameMessage(GameMessage.Type.BET_OTHER, remainingPlayersResponse);
+			broadcast(remainingPlayersResponseMessage, player1GameServerThread);
+			
+			
+		}
+	}
+	
+	public void gameOverMenu(GameMessage receivedMessage, GameServerThread gameServerThread) {
+		String gamename = gameServerThread.getGamename();
+		Game game = gameMap.get(gamename);
+		int maxChips = 0;
+		Vector<Player> allPlayers = game.getPlayers();
+		for(int i = 0; i < allPlayers.size(); i++) {
+			Player player = allPlayers.get(i);
+			int chips = player.getChips();
+			if(chips > maxChips) {
+				maxChips = chips;
+			}
+		}
+		
+		if(maxChips == 0) {
+			String allResponse = "The dealer won the game.";
+			GameMessage allResponseMessage = new GameMessage(GameMessage.Type.GAME_END_ALL, allResponse);
+			emit(allResponseMessage, gameServerThread);
+		}
+		else {
+			Vector<Player> winners = new Vector<Player>();
+			for(int i = 0; i < allPlayers.size(); i++) {
+				Player player = allPlayers.get(i);
+				int chips = player.getChips();
+				if(chips == maxChips) {
+					winners.add(player);
+				}
+			}
+			String allResponse = "";
+			if(winners.size() == 1) {
+				allResponse += winners.get(0).getUsername() + " won the game.";
+			}
+			else if(winners.size() == 2) {
+				allResponse += winners.get(0).getUsername() + " and " + winners.get(1).getUsername() + " won the game.";
+			}
+			else if(winners.size() == 3) {
+				allResponse += winners.get(0).getUsername() + ", " +  winners.get(1).getUsername() + " and " + winners.get(2).getUsername() + " won the game.";
+			}
+			GameMessage allResponseMessage = new GameMessage(GameMessage.Type.GAME_END_ALL, allResponse);
+			emit(allResponseMessage, gameServerThread);
+		}
+	}
+	
+	public void roundEnd(Player inputPlayer) {
+		GameServerThread gameServerThread = inputPlayer.getGameServerThread();
+		String gamename = gameServerThread.getGamename();
+		Game game = gameMap.get(gamename);
+		int dealerCardsValue = game.dealerCardsValue();
+		Vector<Player> allPlayers = game.getPlayers();
+		String playerResponse = "";
+		for(int i = 0; i < allPlayers.size(); i++) {
+			Player player = allPlayers.get(i);
+			String playerUsername = player.getUsername();
+			int currentBet = player.getCurrentBet();
+			int negativeCurrentBet = -1 * currentBet;
+			int playerCardsValue = player.playerCardsValue();
+			int doubleCurrentBet = currentBet * 2;
+			if(player == inputPlayer) {
+				if(playerCardsValue > 21) {
+					playerResponse += "You busted. " + currentBet + " chips were deducted from your total."; 
+					player.changeChips(negativeCurrentBet);
+				}
+				else if(playerCardsValue == 21) {
+					if(dealerCardsValue != 21) {
+						playerResponse += "You had blackjack. " + doubleCurrentBet + " chips were added to your total."; 
+						player.changeChips(doubleCurrentBet);
+					}
+				}
+				else if(playerCardsValue > dealerCardsValue) {
+					playerResponse += "You had a sum greater than the dealer's. " + currentBet + " chips were added to your total.";
+					player.changeChips(currentBet);
+				}
+				else if(dealerCardsValue > 21) {
+					playerResponse += " Dealer busted. " + currentBet + " chips were added to your total.";
+					player.changeChips(currentBet);
+				}
+				else if(playerCardsValue < dealerCardsValue) {
+					playerResponse += "You had a sum less than the dealer's. " + currentBet + " chips were deducted from your total.";
+					player.changeChips(negativeCurrentBet);
+				}
+				else if(playerCardsValue == dealerCardsValue) {
+					playerResponse += "You had tied with the dealer. " + "Your chip total remained the same.";
+				}
+			}
+			else {
+				if(playerCardsValue > 21) {
+					playerResponse += playerUsername + " busted. " + currentBet + " chips were deducted from " + playerUsername + "'s total."; 
+				}
+				else if(playerCardsValue == 21) {
+					if(dealerCardsValue != 21) {
+						playerResponse += playerUsername + " had blackjack. " + doubleCurrentBet + " chips were added to " + playerUsername + "'s total.";
+					}
+				}
+				else if(playerCardsValue > dealerCardsValue) {
+					playerResponse += playerUsername + " had a sum greater than the dealer's. " + currentBet + " chips were added to " + playerUsername + "'s total.";
+				}
+				else if(dealerCardsValue > 21) {
+					playerResponse += " Dealer busted. " + currentBet + " chips were added to " + playerUsername + "'s total.";
+				}
+				else if(playerCardsValue < dealerCardsValue) {
+					playerResponse += playerUsername + " had a sum less than the dealer's. " + currentBet + " chips were deducted from " + playerUsername + "'s total.";
+				}
+				else if(playerCardsValue == dealerCardsValue) {
+					playerResponse += playerUsername + " had tied with the dealer. " + playerUsername + "'s chip total remained the same.";
+				}
+			}
+			playerResponse += "\n";
+		}
+		GameMessage playerResponseMessage = new GameMessage(GameMessage.Type.ROUND_END_PLAYER, playerResponse);
+		gameServerThread.sendMessage(playerResponseMessage);
+		
 	}
 	
 	public void broadcast(GameMessage responseMessage, GameServerThread responseGameServerThread) {

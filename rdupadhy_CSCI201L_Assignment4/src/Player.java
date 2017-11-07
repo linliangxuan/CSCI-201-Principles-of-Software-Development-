@@ -23,6 +23,10 @@ public class Player {
 		this.cards.addAll(cards);
 	}
 	
+	public void changeChips(int change) {
+		chips += change;
+	}
+	
 	public int playerCardsValue() {
 		int playerCardsValue = 0;
 		for(int i = 0; i < cards.size(); i++) {
