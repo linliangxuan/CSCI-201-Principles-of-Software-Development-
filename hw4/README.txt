@@ -10,4 +10,5 @@ a) GameClient - It extends Thread and contains methods for reading and writing m
 b) GameServer - Contains Game objects, GameServerThread objects and contains methods for message redirection logic
 c) GameServerThread - It extends Thread and contains methods for reading and writing message. Each GameServerThread object corresponds to a GameClient.
 
+Note: The Utility package is redundant. It was used for testing purposes only. 
 The program must be started by running GameServer and GameClient.
