@@ -1,0 +1,1360 @@
+{
+	"schools": [{
+		"name": "USC",
+		"image": "http://www-scf.usc.edu/~csci201/images/USC_seal.gif",
+		"departments": [{
+			"longName": "Computer Science",
+			"prefix": "CSCI",
+			"courses": [{
+				"number": "201L",
+				"title": "Principles of Software Development",
+				"units": "4",
+				"term": "Fall",
+				"year": "2017",
+				"staffMembers": [{
+						"type": "instructor",
+						"id": "1",
+						"name": {
+							"fname": "Jeffrey",
+							"lname": "Miller"
+						},
+						"email": "jeffrey.miller@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/jeffrey_miller.jpg",
+						"phone": "213-740-7129",
+						"office": "SAL 342",
+						"officeHours": [{
+								"day": "Tuesday",
+								"time": {
+									"start": "12:30p.m.",
+									"end": "1:30p.m."
+								}
+							},
+							{
+								"day": "Thursday",
+								"time": {
+									"start": "1:30p.m.",
+									"end": "3:45p.m."
+								}
+							}
+						]
+
+					},
+					{
+						"type": "ta",
+						"id": "2",
+						"name": {
+							"fname": "Sarik",
+							"lname": "Ghazarian"
+						},
+						"email": "arikgha@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/USC_seal.gif",
+						"officeHours": [{
+								"day": "Monday",
+								"time": {
+									"start": "10:00a.m.",
+									"end": "12:00p.m."
+								}
+							},
+							{
+								"day": "Tuesday",
+								"time": {
+									"start": "2:00p.m.",
+									"end": "4:00p.m."
+								}
+							},
+							{
+								"day": "Friday",
+								"time": {
+									"start": "12:00p.m.",
+									"end": "2:00p.m."
+								}
+							},
+							{
+								"day": "Monday",
+								"time": {
+									"start": "4:00p.m.",
+									"end": "6:00p.m."
+								}
+							}
+						]
+					},
+					{
+						"type": "cp",
+						"id": "3",
+						"name": {
+							"fname": "Ninareh",
+							"lname": "Mehrabi"
+						},
+						"email": "ninareh@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/ninareh_mehrabi.jpg",
+						"officeHours": [{
+								"day": "Monday",
+								"time": {
+									"start": "12:00p.m.",
+									"end": "2:00p.m."
+								}
+							},
+							{
+								"day": "Monday",
+								"time": {
+									"start": "6:00p.m.",
+									"end": "8:00p.m."
+								}
+							},
+							{
+								"day": "Monday",
+								"time": {
+									"start": "2:00p.m.",
+									"end": "4:00p.m."
+								}
+							}
+						]
+					},
+					{
+						"type": "cp",
+						"id": "4",
+						"name": {
+							"fname": "Melody",
+							"lname": "Chai"
+						},
+						"email": "chaimelo@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/melody_chai.jpg",
+						"officeHours": [{
+								"day": "Thursday",
+								"time": {
+									"start": "10:00a.m.",
+									"end": "12:00p.m."
+								}
+							},
+							{
+								"day": "Friday",
+								"time": {
+									"start": "2:00p.m.",
+									"end": "4:00p.m."
+								}
+							},
+							{
+								"day": "Friday",
+								"time": {
+									"start": "6:00p.m.",
+									"end": "8:00p.m."
+								}
+							},
+							{
+								"day": "Thursday",
+								"time": {
+									"start": "6:00p.m.",
+									"end": "8:00p.m."
+								}
+							},
+							{
+								"day": "Tuesday",
+								"time": {
+									"start": "4:00p.m.",
+									"end": "6:00p.m."
+								}
+							},
+							{
+								"day": "Saturday",
+								"time": {
+									"start": "6:00p.m.",
+									"end": "8:00p.m."
+								}
+							},
+							{
+								"day": "Thursday",
+								"time": {
+									"start": "4:00p.m.",
+									"end": "6:00p.m."
+								}
+							}
+						]
+					},
+					{
+						"type": "grader",
+						"id": "5",
+						"name": {
+							"fname": "Ruth",
+							"lname": "Libowsky"
+						},
+						"email": "libowsky@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/ruth_libowsky.jpg"
+					},
+					{
+						"type": "cp",
+						"id": "6",
+						"name": {
+							"fname": "Emma",
+							"lname": "Lautz"
+						},
+						"email": "elautz@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/emma_lautz.jpg",
+						"officeHours": [{
+								"day": "Thursday",
+								"time": {
+									"start": "12:00p.m.",
+									"end": "2:00p.m."
+								}
+							},
+							{
+								"day": "Thursday",
+								"time": {
+									"start": "2:00p.m.",
+									"end": "4:00p.m."
+								}
+							},
+							{
+								"day": "Friday",
+								"time": {
+									"start": "10:00a.m.",
+									"end": "12:00p.m."
+								}
+							},
+							{
+								"day": "Wednesday",
+								"time": {
+									"start": "4:00p.m.",
+									"end": "6:00p.m."
+								}
+							},
+							{
+								"day": "Wednesday",
+								"time": {
+									"start": "6:00p.m.",
+									"end": "8:00p.m."
+								}
+							},
+							{
+								"day": "Friday",
+								"time": {
+									"start": "4:00p.m.",
+									"end": "6:00p.m."
+								}
+							}
+						]
+					},
+					{
+						"type": "cp",
+						"id": "7",
+						"name": {
+							"fname": "Jesse",
+							"lname": "Werner"
+						},
+						"email": "jiwerner@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/jesse_werner.jpg",
+						"officeHours": [{
+								"day": "Tuesday",
+								"time": {
+									"start": "12:00p.m.",
+									"end": "2:00p.m."
+								}
+							},
+							{
+								"day": "Wednesday",
+								"time": {
+									"start": "12:00p.m.",
+									"end": "2:00p.m."
+								}
+							},
+							{
+								"day": "Saturday",
+								"time": {
+									"start": "10:00a.m.",
+									"end": "12:00p.m."
+								}
+							},
+							{
+								"day": "Saturday",
+								"time": {
+									"start": "4:00p.m.",
+									"end": "6:00p.m."
+								}
+							}
+						]
+					},
+					{
+						"type": "cp",
+						"id": "8",
+						"name": {
+							"fname": "Helena",
+							"lname": "Rhee"
+						},
+						"email": "helenarh@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/helena_rhee.jpg",
+						"officeHours": [{
+								"day": "Tuesday",
+								"time": {
+									"start": "10:00a.m.",
+									"end": "12:00p.m."
+								}
+							},
+							{
+								"day": "Wednesday",
+								"time": {
+									"start": "10:00a.m.",
+									"end": "12:00p.m."
+								}
+							}
+						]
+					},
+					{
+						"type": "cp",
+						"id": "9",
+						"name": {
+							"fname": "Uddhav",
+							"lname": "Joglekar"
+						},
+						"email": "joglekar@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/uddhav_joglekar.jpg",
+						"officeHours": [
+							{
+								"day": "Tuesday",
+								"time": {
+									"start": "6:00p.m.",
+									"end": "8:00p.m."
+								}
+							},
+							{
+								"day": "Saturday",
+								"time": {
+									"start": "12:00p.m.",
+									"end": "2:00p.m."
+								}
+							}
+						]
+					},
+					{
+						"type": "cp",
+						"id": "10",
+						"name": {
+							"fname": "Emma",
+							"lname": "Joglekar"
+						},
+						"email": "elautz@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/emma_lautz.jpg",
+						"officeHours": [
+							{
+								"day": "Wednesday",
+								"time": {
+									"start": "2:00p.m.",
+									"end": "4:00p.m."
+								}
+							}
+						]
+					},
+					{
+						"type": "cp",
+						"id": "11",
+						"name": {
+							"fname": "Uddhav",
+							"lname": "Lau"
+						},
+						"email": "jansonla@usc.edu",
+						"image": "http://www-scf.usc.edu/~csci201/images/janson_lau.jpg",
+						"officeHours": [
+							{
+								"day": "Saturday",
+								"time": {
+									"start": "2:00p.m.",
+									"end": "4:00p.m."
+								}
+							}
+						]
+					}
+				],
+				"meetings": [{
+						"type": "lecture",
+						"section": "30303R",
+						"room": "SSL 150",
+						"meetingPeriods": [{
+								"day": "Tuesday",
+								"time": {
+									"start": "8:00a.m.",
+									"end": "9:20a.m."
+								}
+							},
+							{
+								"day": "Thursday",
+								"time": {
+									"start": "8:00a.m.",
+									"end": "9:20a.m."
+								}
+							}
+						],
+						"assistants": [{
+							"staffMemberID": "8"
+						}]
+					},
+					{
+						"type": "lecture",
+						"section": "29909R",
+						"room": "GFS 116",
+						"meetingPeriods": [{
+								"day": "Tuesday",
+								"time": {
+									"start": "9:30a.m.",
+									"end": "10:50a.m."
+								}
+							},
+							{
+								"day": "Thursday",
+								"time": {
+									"start": "9:30a.m.",
+									"end": "10:50a.m."
+								}
+							}
+						],
+						"assistants": [{
+							"staffMemberID": "7"
+						}]
+					},
+					{
+						"type": "lecture",
+						"section": "30389R",
+						"room": "LVL 17",
+						"meetingPeriods": [{
+								"day": "Tuesday",
+								"time": {
+									"start": "11:00a.m.",
+									"end": "12:20a.m."
+								}
+							},
+							{
+								"day": "Thursday",
+								"time": {
+									"start": "11:00a.m.",
+									"end": "12:20a.m."
+								}
+							}
+						],
+						"assistants": [{
+							"staffMemberID": "3"
+						}]
+					},
+					{
+						"type": "lab",
+						"section": "30237R",
+						"room": "SAL 126",
+						"meetingPeriods": [{
+							"day": "Tuesday",
+							"time": {
+								"start": "2:00p.m.",
+								"end": "3:50p.m."
+							}
+						}],
+						"assistants": [{
+								"staffMemberID": "6"
+							},
+							{
+								"staffMemberID": "4"
+							},
+							{
+								"staffMemberID": "2"
+							}
+						]
+
+					},
+					{
+						"type": "lab",
+						"section": "30385R",
+						"room": "SAL 109",
+						"meetingPeriods": [{
+							"day": "Wednesday",
+							"time": {
+								"start": "4:00p.m.",
+								"end": "5:50p.m."
+							}
+						}],
+						"assistants": [{
+								"staffMemberID": "7"
+							},
+							{
+								"staffMemberID": "2"
+							},
+							{
+								"staffMemberID": "3"
+							}
+						]
+
+					},
+					{
+						"type": "lab",
+						"section": "29904R",
+						"room": "SAL 109",
+						"meetingPeriods": [{
+							"day": "Wednesday",
+							"time": {
+								"start": "6:00p.m.",
+								"end": "7:50p.m."
+							}
+						}],
+						"assistants": [{
+								"staffMemberID": "4"
+							},
+							{
+								"staffMemberID": "7"
+							},
+							{
+								"staffMemberID": "6"
+							}
+						]
+
+					},
+					{
+						"type": "lab",
+						"section": "30238R",
+						"room": "SAL 127",
+						"meetingPeriods": [{
+							"day": "Wednesday",
+							"time": {
+								"start": "12:00p.m.",
+								"end": "1:50p.m."
+							}
+						}],
+						"assistants": [{
+								"staffMemberID": "3"
+							},
+							{
+								"staffMemberID": "8"
+							},
+							{
+								"staffMemberID": "2"
+							}
+						]
+
+					},
+					{
+						"type": "quiz",
+						"section": "30028R",
+						"room": "TBD",
+						"meetingPeriods": [{
+							"day": "Thursday",
+							"time": {
+								"start": "7:00p.m.",
+								"end": "8:50p.m."
+							}
+						}]
+					}
+				],
+				"syllabus": {
+					"url": "http://www-scf.usc.edu/~csci201/syllabus.pdf"
+				},
+				"schedule": {
+					"textbooks": [{
+						"number": "1",
+						"author": "Y. Daniel Liang",
+						"title": "Introduction to Java Programming, Comprehensive Version, 10th Edition",
+						"publisher": "Prentice Hall, Inc.",
+						"year": "2014",
+						"isbn": "978-0133761313"
+					}],
+					"weeks": [{
+							"week": "1",
+							"labs": [{
+									"number": "1",
+									"title": "Github Tutorial",
+									"url": "http://www-scf.usc.edu/~csci201/labs/Lab0.pdf"
+								},
+								{
+									"number": "2",
+									"title": "Environment Setup",
+									"url": "http://www-scf.usc.edu/~csci201/labs/Lab1.pdf"
+								}
+							],
+							"lectures": [{
+									"number": "1",
+									"date": "8-24-2017",
+									"day": "Tuesday",
+									"topics": [{
+											"number": "1",
+											"title": "Introduction",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture1/Introduction.pdf"
+										},
+										{
+											"number": "2",
+											"title": "Environment",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture1/Environment.pdf"
+										},
+										{
+											"number": "3",
+											"title": "Reading Parameters",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture1/ReadingParameters.pdf",
+											"chapter": "2"
+										},
+										{
+											"number": "4",
+											"title": "Conditions",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture1/Conditions.pdf",
+											"chapter": "3",
+											"programs": [{
+												"files": [{
+													"number": "1",
+													"title": "Operation.java",
+													"url": "http://www-scf.usc.edu/~csci201/Lecture1/Operation.java"
+												}]
+											}]
+										},
+										{
+											"number": "5",
+											"title": "Loops",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture1/Loops.pdf",
+											"chapter": "4",
+											"programs": [{
+												"files": [{
+													"number": "1",
+													"title": "Dice.java",
+													"url": "http://www-scf.usc.edu/~csci201/Lecture1/Dice.java"
+												}]
+											}]
+										},
+										{
+											"number": "6",
+											"title": "Methods",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture1/Methods.pdf",
+											"chapter": "5",
+											"programs": [{
+												"files": [{
+													"number": "1",
+													"title": "Fibonacci.java",
+													"url": "http://www-scf.usc.edu/~csci201/Lecture1/Fibonacci.java"
+												}]
+											}]
+										},
+										{
+											"number": "7",
+											"title": "Arrays",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture1/Arrays.pdf",
+											"chapter": "6-7",
+											"programs": [{
+												"files": [{
+													"number": "1",
+													"title": "Dice.java",
+													"url": "http://www-scf.usc.edu/~csci201/Lecture1/Dice.java"
+												}]
+											}]
+										},
+										{
+											"number": "8",
+											"title": "Strings",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture1/Strings.pdf",
+											"chapter": "9"
+										}
+									]
+								},
+								{
+									"number": "2",
+									"date": "8-28-2017",
+									"day": "Thursday",
+									"topics": [{
+											"number": "1",
+											"title": "Classes",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture2/Classes.pdf",
+											"programs": [{
+												"files": [{
+													"number": "1",
+													"title": "Salary.java",
+													"url": "http://www-scf.usc.edu/~csci201/Lecture2/Salary.java"
+												}]
+											}],
+											"chapter": "8,10"
+										},
+										{
+											"number": "2",
+											"title": "Packages",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture2/Packages.pdf",
+											"chapter": "8"
+										},
+										{
+											"number": "3",
+											"title": "File I/O",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture4/FileIO.pdf",
+											"programs": [{
+												"files": [{
+														"number": "1",
+														"title": "FileCopy.java",
+														"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture4/FileCopy.java"
+													},
+													{
+														"number": "2",
+														"title": "FileCopier.java",
+														"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture4/FileCopier.java"
+													}
+												]
+											}],
+											"chapter": "9"
+										}
+									]
+
+								}
+							]
+						},
+						{
+							"week": "2",
+							"labs": [{
+								"number": "1",
+								"title": "File I/O",
+								"url": "http://www-scf.usc.edu/~csci201/labs/Lab2.pdf",
+								"files": [{
+										"number": "1",
+										"title": "lab2.ser",
+										"url": "http://www-scf.usc.edu/~csci201/labs/lab2.ser"
+									},
+									{
+										"number": "2",
+										"title": "Assignment.java",
+										"url": "http://www-scf.usc.edu/~csci201/labs/Assignment.java"
+									}
+								]
+							}],
+							"lectures": [{
+									"number": "1",
+									"date": "8-29-2017",
+									"day": "Tuesday",
+									"topics": [{
+											"number": "1",
+											"title": "Abstract Classes and Interfaces",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture2/AbstractClassesInterfaces.pdf",
+											"chapter": "11",
+											"programs": [{
+												"files": [{
+														"number": "1",
+														"title": "TestShape.java",
+														"url": "http://www-scf.usc.edu/~csci201/Lecture2/TestShape.java"
+													},
+													{
+														"number": "2",
+														"title": "Shape.java",
+														"url": "http://www-scf.usc.edu/~csci201/Lecture2/Shape.java"
+													},
+													{
+														"number": "3",
+														"title": "Rectangle.java",
+														"url": "http://www-scf.usc.edu/~csci201/Lecture2/Rectangle.java"
+													},
+													{
+														"number": "4",
+														"title": "Square.java",
+														"url": "http://www-scf.usc.edu/~csci201/Lecture2/Square.java"
+													},
+													{
+														"number": "5",
+														"title": "Triangle.java",
+														"url": "http://www-scf.usc.edu/~csci201/Lecture2/Triangle.java"
+													}
+												]
+											}]
+										},
+										{
+											"number": "2",
+											"title": "Polymorphism",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture2/Polymorphism.pdf",
+											"chapter": "11"
+										}
+									]
+								},
+								{
+									"number": "2",
+									"date": "8-31-2017",
+									"day": "Thursday",
+									"topics": [{
+											"number": "1",
+											"title": "Garbage Collection",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture3/GarbageCollection.pdf",
+											"chapter": "6,8"
+										},
+										{
+											"number": "2",
+											"title": "Exception Handling",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture3/ExceptionHandling.pdf",
+											"chapter": "13",
+											"programs": [{
+												"files": [{
+														"number": "1",
+														"title": "NumberExceptions.java",
+														"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture3/NumberExceptions.java"
+													},
+													{
+														"number": "2",
+														"title": "NumberGreaterException.java",
+														"url": "http://www-scf.usc.edu/~csci201/letures/Lecture3/NumberGreaterException.java"
+													}
+												]
+											}]
+										},
+										{
+											"number": "3",
+											"title": "Serialization",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture4/Serialization.pdf",
+											"chapter": "19"
+										},
+										{
+											"number": "4",
+											"title": "Generics",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture4/Generics.pdf",
+											"chapter": "21",
+											"programs": [{
+												"files": [{
+														"number": "1",
+														"title": "Employee.java",
+														"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture4/Employee.java"
+													},
+													{
+														"number": "2",
+														"title": "EmployeeMain.java",
+														"url": "http://www-scf.usc.edu/~csci201/letures/Lecture4/EmployeeMain.java"
+													},
+													{
+														"number": "3",
+														"title": "GenericArray.java",
+														"url": "http://www-scf.usc.edu/~csci201/letures/Lecture4/GenericArray.java"
+													}
+												]
+											}]
+										}
+									]
+								}
+							]
+						},
+						{
+							"week": "3",
+							"labs": [{
+								"number": "1",
+								"title": "HTML/CSS",
+								"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture4/Generics.pdf",
+								"files": [{
+										"number": "1",
+										"title": "css0.html",
+										"url": "http://www-scf.usc.edu/~csci201/labs/css0.html"
+									},
+									{
+										"number": "2",
+										"title": "css1.html",
+										"url": "http://www-scf.usc.edu/~csci201/labs/css1.html"
+									},
+									{
+										"number": "3",
+										"title": "css1.css",
+										"url": "http://www-scf.usc.edu/~csci201/labs/css1.css"
+									},
+									{
+										"number": "4",
+										"title": "css2.html",
+										"url": "http://www-scf.usc.edu/~csci201/labs/css2.html"
+									}
+								]
+							}],
+							"lectures": [{
+									"number": "1",
+									"date": "9-12-2017",
+									"day": "Tuesday",
+									"topics": [{
+										"number": "1",
+										"title": "JavaScript",
+										"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture7/JavaScript.pdf",
+										"chapter": "1"
+									}]
+								},
+								{
+									"number": "2",
+									"date": "9-14-2017",
+									"day": "Thursday",
+									"topics": [{
+										"number": "1",
+										"title": "AJAX",
+										"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture7/AJAX.pdf",
+										"chapter": "3",
+										"programs": [{
+											"files": [{
+													"number": "1",
+													"title": "ajaxform.html",
+													"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture7/ajaxform.html"
+												},
+												{
+													"number": "2",
+													"title": "validate.jsp",
+													"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture7/validate.jsp"
+												}
+											]
+										}]
+									}]
+
+								}
+							]
+						},
+						{
+							"week": "4",
+							"labs": [{
+								"number": "1",
+								"title": "Inheritance",
+								"url": "http://www-scf.usc.edu/~csci201/labs/Lab3.pdf",
+								"files": [{
+									"number": "1",
+									"title": "Lab3.java",
+									"url": "http://www-scf.usc.edu/~csci201/labs/Lab3.java"
+								}]
+							}],
+							"lectures": [{
+									"number": "1",
+									"date": "9-19-2017",
+									"day": "Tuesday",
+									"topics": [{
+											"number": "1",
+											"title": "HTML",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture5/HTML.pdf"
+										},
+										{
+											"number": "2",
+											"title": "CSS",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture5/CSS.pdf",
+											"chapter": "2"
+										}
+									]
+								},
+								{
+									"number": "2",
+									"date": "9-21-2017",
+									"day": "Thursday",
+									"topics": [{
+											"number": "1",
+											"title": "Java Servlets",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture6/Servlets.pdf",
+											"programs": [{
+												"files": [{
+														"number": "1",
+														"title": "schoolform.html",
+														"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture6/schoolform.html"
+													},
+													{
+														"number": "2",
+														"title": "SchoolFormServlet.java",
+														"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture6/SchoolFormServlet.java"
+													},
+													{
+														"number": "3",
+														"title": "SchoolForm.jsp",
+														"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture6/SchoolForm.jsp"
+													}
+												]
+											}]
+										},
+										{
+											"number": "2",
+											"title": "JSP",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture6/JSP.pdf",
+											"chapter": "8"
+										}
+									]
+
+								}
+							]
+						},
+						{
+							"week": "5",
+							"labs": [{
+								"number": "1",
+								"title": "JavaScript and AJAX",
+								"url": "http://www-scf.usc.edu/~csci201/labs/Lab6.pdf"
+							}],
+							"lectures": [{
+									"number": "1",
+									"date": "10-3-2017",
+									"day": "Tuesday",
+									"topics": [{
+											"number": "1",
+											"title": "Software Engineering",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture11/SoftwareEngineering.pdf"
+										},
+										{
+											"number": "2",
+											"title": "Methodologies",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture11/Methodologies.pdf"
+										},
+										{
+											"number": "3",
+											"title": "Testing",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture11/Testing.pdf",
+											"chapter": "7"
+										}
+									]
+								},
+								{
+									"number": "2",
+									"date": "10-5-2017",
+									"day": "Thursday",
+									"topics": [{
+											"number": "1",
+											"title": "Project Discussion",
+											"url": "http://www-scf.usc.edu/~csci201/assignments/FinalProject.pdf"
+										},
+										{
+											"number": "2",
+											"title": "Review for Exam",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture6/JSP.pdf",
+											"chapter": "4"
+										}
+									]
+
+								}
+							]
+						},
+						{
+							"week": "6",
+							"labs": [{
+								"number": "1",
+								"title": "JDBC",
+								"url": "http://www-scf.usc.edu/~csci201/labs/Lab12.pdf"
+							}],
+							"lectures": [{
+									"number": "1",
+									"date": "10-24-2017",
+									"day": "Tuesday",
+									"topics": [{
+										"number": "1",
+										"title": "SQL",
+										"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture16/SQL.pdf",
+										"chapter": "2"
+									}]
+								},
+								{
+									"number": "2",
+									"date": "10-26-2017",
+									"day": "Thursday",
+									"topics": [{
+											"number": "1",
+											"title": "JDBC",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture16/JDBC.pdf"
+										},
+										{
+											"number": "2",
+											"title": "JDBC Tutorial",
+											"url": "http://www-scf.usc.edu/~csci201/lectures/Lecture16/JDBCTutorial.pdf",
+											"chapter": "5"
+										}
+									]
+
+								}
+							]
+						}
+					]
+				},
+				"assignments": [{
+						"number": "1",
+						"assignedDate": "8-15-2017",
+						"dueDate": "8-24-2017",
+						"title": "PDF",
+						"url": "http://www-scf.usc.edu/~csci201/assignments/Assignment1-1.pdf",
+						"files": [{
+							"number": "1",
+							"title": "Sample JSON",
+							"url": "http://www-scf.usc.edu/~csci201/assignments/Assignment1-1.json"
+						}],
+						"gradingCriteriaFiles": [{
+								"number": "1",
+								"title": "PDF",
+								"url": "http://www-scf.usc.edu/~csci201/assignments/assignment1gradingcriteria/Assignment1GradingCriteria-1.pdf"
+							},
+							{
+								"number": "2",
+								"title": "valid.json",
+								"url": "http://www-scf.usc.edu/~csci201/assignments/assignment1gradingcriteria/valid.json"
+							},
+							{
+								"number": "3",
+								"title": "InvalidMissingTag.json",
+								"url": "http://www-scf.usc.edu/~csci201/assignments/assignment1gradingcriteria/InvalidMissingTag.json"
+							},
+							{
+								"number": "4",
+								"title": "InvalidMissingClosingTag.json",
+								"url": "http://www-scf.usc.edu/~csci201/assignments/assignment1gradingcriteria/InvalidMissingClosingTag.json"
+							},
+							{
+								"number": "5",
+								"title": "InvalidExtraDepartmentNoCourses.json",
+								"url": "http://www-scf.usc.edu/~csci201/assignments/assignment1gradingcriteria/InvalidExtraDepartmentNoCourses.json"
+							},
+							{
+								"number": "6",
+								"title": "NoLastNamesError.json",
+								"url": "http://www-scf.usc.edu/~csci201/assignments/assignment1gradingcriteria/NoLastNamesError.json"
+							}
+						],
+						"solutionFiles": [{
+							"number": "1",
+							"title": "Zip",
+							"url": "http://www-scf.usc.edu/~csci201/assignments/Assignment1Solution.zip"
+						}],
+						"gradePercentage": "3.5%"
+					},
+					{
+						"number": "2",
+						"assignedDate": "8-17-2017",
+						"dueDate": "8-28-2017",
+						"title": "PDF",
+						"url": "http://www-scf.usc.edu/~csci201/assignments/Assignment2.pdf",
+						"files": [{
+							"number": "1",
+							"title": "Sample JSON",
+							"url": "http://www-scf.usc.edu/~csci201/assignments/Assignment2.json"
+						}],
+						"gradePercentage": "3.5%"
+					},
+					{
+						"number": "3",
+						"assignedDate": "8-20-2017",
+						"dueDate": "8-29-2017",
+						"gradePercentage": "4.5%"
+					},
+					{
+						"number": "4",
+						"assignedDate": "8-27-2017",
+						"dueDate": "8-31-2017",
+						"gradePercentage": "3.5%"
+					},
+					{
+						"number": "5",
+						"assignedDate": "9-7-2017",
+						"dueDate": "9-12-2017",
+						"gradePercentage": "5.0%"
+					},
+					{
+						"number": "Final Project",
+						"assignedDate": "9-24-2017",
+						"title": "Final Project Description",
+						"url": "http://www-scf.usc.edu/~csci201/assignments/FinalProject.pdf",
+						"files": [{
+							"number": "1",
+							"title": "Final Project Ideas from Previous CPs",
+							"url": "http://www-scf.usc.edu/~csci201/assignments/FinalProjectIdeas.pdf"
+						}],
+						"deliverables": [{
+								"number": "1",
+								"dueDate": "9-19-2017",
+								"title": "Twice/Week Meeting with Assigned CP",
+								"gradePercentage": "4.0% (0.5%/week)"
+							},
+							{
+								"number": "2",
+								"dueDate": "9-12-2017",
+								"title": "Team Members, Meeting Times, Project Proposal",
+								"gradePercentage": "1.0%"
+							},
+							{
+								"number": "3",
+								"dueDate": "9-21-2017",
+								"title": "High-Level Requirements",
+								"gradePercentage": "2.0%"
+							},
+							{
+								"number": "4",
+								"dueDate": "10-3-2017",
+								"title": "Technical Specifications",
+								"gradePercentage": "2.0%"
+							},
+							{
+								"number": "5",
+								"dueDate": "10-5-2017",
+								"title": "Peer Review #1",
+								"gradePercentage": "1.0%"
+							},
+							{
+								"number": "6",
+								"dueDate": "10-24-2017",
+								"title": "Detailed Design",
+								"gradePercentage": "3.0%"
+							},
+							{
+								"number": "7",
+								"dueDate": "10-26-2017",
+								"title": "Testing Document",
+								"gradePercentage": "2.0%"
+							},
+							{
+								"number": "8",
+								"dueDate": "11-30-2017",
+								"title": "Demonstration",
+								"gradePercentage": "10.0%",
+								"files": [{
+										"number": "1",
+										"title": "Grading Rubric",
+										"url": "http://www-scf.usc.edu/~csci201/assignments/FinalProjectPresentationGradingRubric.pdf"
+									},
+									{
+										"number": "2",
+										"title": "Professor Evaluation Form",
+										"url": "http://www-scf.usc.edu/~csci201/assignments/FinalProjectPresentationEvaluationForm-Professor.pdf"
+									},
+									{
+										"number": "3",
+										"title": "Student Evaluation Form",
+										"url": "http://www-scf.usc.edu/~csci201/assignments/FinalProjectPresentationEvaluationForm-Student.pdf"
+									}
+								]
+							}
+
+						]
+
+					}
+				],
+				"exams": [{
+
+						"semester": "Spring",
+						"year": "2014",
+						"tests": [{
+								"title": "Written Exam #1",
+								"files": [{
+									"number": "1",
+									"title": "PDF 2014",
+									"url": "http://www-scf.usc.edu/~csci201/exams/midterm-written-spring2014.pdf"
+								}]
+							},
+							{
+								"title": "Programming Exam #1",
+								"files": [{
+										"number": "1",
+										"title": "Section 1 PDF 2014",
+										"url": "http://www-scf.usc.edu/~csci201/exams/midterm-programming-section1-spring2014.pdf"
+									},
+									{
+										"number": "2",
+										"title": "Section 2 PDF 2014",
+										"url": "http://www-scf.usc.edu/~csci201/exams/midterm-programming-section2-spring2014.pdf"
+									}
+								]
+
+							},
+							{
+								"title": "Written Exam #2",
+								"files": [{
+									"number": "1",
+									"title": "PDF 2014",
+									"url": "http://www-scf.usc.edu/~csci201/exams/final-written-spring2014.pdf"
+								}]
+							},
+							{
+								"title": "Programming Exam #2",
+								"files": [{
+										"number": "1",
+										"title": "Section 1 PDF 2014",
+										"url": "http://www-scf.usc.edu/~csci201/exams/final-programming-section1-spring2014.pdf"
+									},
+									{
+										"number": "2",
+										"title": "Section 2 PDF 2014",
+										"url": "http://www-scf.usc.edu/~csci201/exams/final-programming-section2-spring2014.pdf"
+									},
+									{
+										"number": "3",
+										"title": "zip file",
+										"url": "http://www-scf.usc.edu/~csci201/exams/finalexam_spring2014.zip"
+									}
+								]
+
+							}
+						]
+					},
+					{
+
+						"semester": "Spring",
+						"year": "2010",
+						"tests": [{
+								"title": "Written Exam #1",
+								"files": [{
+									"number": "1",
+									"title": "PDF 2010",
+									"url": "http://www-scf.usc.edu/~csci201/exams/midterm-written-spring2014.pdf"
+								}]
+							},
+							{
+								"title": "Programming Exam #1",
+								"files": [{
+										"number": "1",
+										"title": "Section 1 PDF 2010",
+										"url": "http://www-scf.usc.edu/~csci201/exams/midterm-programming-section1-spring2014.pdf"
+									},
+									{
+										"number": "2",
+										"title": "Section 2 PDF 2010",
+										"url": "http://www-scf.usc.edu/~csci201/exams/midterm-programming-section2-spring2014.pdf"
+									}
+								]
+
+							},
+							{
+								"title": "Written Exam #2",
+								"files": [{
+									"number": "1",
+									"title": "PDF 2010",
+									"url": "http://www-scf.usc.edu/~csci201/exams/final-written-spring2014.pdf"
+								}]
+							},
+							{
+								"title": "Programming Exam #2",
+								"files": [{
+										"number": "1",
+										"title": "Section 1 PDF 2010",
+										"url": "http://www-scf.usc.edu/~csci201/exams/final-programming-section1-spring2014.pdf"
+									},
+									{
+										"number": "2",
+										"title": "Section 2 PDF 2010",
+										"url": "http://www-scf.usc.edu/~csci201/exams/final-programming-section2-spring2014.pdf"
+									},
+									{
+										"number": "3",
+										"title": "zip file",
+										"url": "http://www-scf.usc.edu/~csci201/exams/finalexam_spring2014.zip"
+									}
+								]
+
+							}
+						]
+					},
+					{
+						"semester": "Summer",
+						"year": "2011",
+						"tests": [{
+								"title": "Written Exam #1",
+								"files": [{
+									"number": "1",
+									"title": "PDF 2011",
+									"url": "http://www-scf.usc.edu/~csci201/exams/midterm-written-summer2014.pdf"
+								}]
+							},
+							{
+								"title": "Programming Exam #1",
+								"files": [{
+									"number": "1",
+									"title": "PDF 2011",
+									"url": "http://www-scf.usc.edu/~csci201/exams/midterm-programming-summer2014.pdf"
+								}]
+							},
+							{
+								"title": "Written Exam #2",
+								"files": [{
+									"number": "1",
+									"title": "PDF 2011",
+									"url": "http://www-scf.usc.edu/~csci201/exams/final-written-summer2014.pdf"
+								}]
+							},
+							{
+								"title": "Programming Exam #2",
+								"files": [{
+										"number": "1",
+										"title": "PDF 2011",
+										"url": "http://www-scf.usc.edu/~csci201/exams/final-programming-summer2014.pdf"
+									},
+									{
+										"number": "3",
+										"title": "zip file",
+										"url": "http://www-scf.usc.edu/~csci201/exams/finalexam_summer2014.zip"
+									}
+								]
+							}
+						]
+					}
+				]
+			}]
+		}]
+	}]
+}
