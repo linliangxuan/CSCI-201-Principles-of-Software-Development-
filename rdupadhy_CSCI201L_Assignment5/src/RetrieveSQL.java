@@ -16,8 +16,8 @@ import parser.*;
 public class RetrieveSQL {
 
 	private static Connection conn = null;
-	private static ResultSet rs = null;
-	private static PreparedStatement ps = null;
+//	private static ResultSet rs = null;
+//	private static PreparedStatement ps = null;
 	
 	public static void connect() {
 		try {
@@ -30,7 +30,7 @@ public class RetrieveSQL {
 		}
 	}
 	
-	public static void close() {
+	public static void close(ResultSet rs, PreparedStatement ps) {
 		try {
 			if (rs != null) {
 				rs.close();
@@ -57,6 +57,8 @@ public class RetrieveSQL {
 	}
 	
 	public static School[] retrieveSchools() {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		School[] schools = null;
 		int count = 0;
 		connect();
@@ -93,12 +95,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return schools;		
 	}
 	
 	public static Department[] retrieveDepartments(int schoolID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Department[] departments = null;
 		int count = 0;
 		connect();
@@ -135,12 +139,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return departments;	
 	}
 	
 	public static Course[] retrieveCourses(int departmentID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Course[] courses = null;
 		int count = 0;
 		connect();
@@ -193,12 +199,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return courses;
 	}
 	
 	public static StaffMember[] retrieveStaffMembers(int courseID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		StaffMember[] staffMembers = null;
 		int count = 0;
 		connect();
@@ -244,12 +252,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return staffMembers;
 	}
 	
 	public static Name retrieveName(int staffMemberID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Name name = new Name();
 		connect();
 		try {
@@ -268,12 +278,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return name;
 	}
 	
 	public static OfficeHour[] retrieveOfficeHours(int staffMemberID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		OfficeHour[] officeHours = null;
 		int count = 0;
 		connect();
@@ -307,12 +319,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return officeHours;
 	}
 	
 	public static Time retrieveTimeOfficeHour(int officehourID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Time time = new Time();
 		connect();
 		try {
@@ -331,12 +345,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return time;
 	}
 	
 	public static Meeting[] retrieveMeetings(int courseID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Meeting[] meetings = null;
 		int count = 0;
 		connect();
@@ -376,12 +392,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return meetings;
 	}
 	
 	public static MeetingPeriod[] retrieveMeetingPeriods(int meetingID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		MeetingPeriod[] meetingPeriods = null;
 		int count = 0;
 		connect();
@@ -415,12 +433,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return meetingPeriods;
 	}
 	
 	public static Time retrieveTimeMeetingPeriod(int meetingPeriodID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Time time = new Time();
 		connect();
 		try {
@@ -439,12 +459,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return time;
 	}
 	
 	public static Assistant[] retrieveAssistants(int meetingID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Assistant[] assistants = null;
 		int count = 0;
 		connect();
@@ -473,12 +495,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return assistants;
 	}
 	
 	public static Syllabus retrieveSyllabus(int courseID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Syllabus syllabus = new Syllabus();
 		connect();
 		try {
@@ -495,12 +519,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return syllabus;
 	}
 	
 	public static Schedule retrieveSchedule(int courseID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Schedule schedule = new Schedule();
 		connect();
 		try {
@@ -520,12 +546,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return schedule;
 	}
 	
 	public static Textbook[] retrieveTextbooks(int scheduleID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Textbook[] textbooks = null;
 		int count = 0;
 		connect();
@@ -566,12 +594,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return textbooks;
 	}
 	
 	public static Week[] retrieveWeeks(int scheduleID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Week[] weeks = null;
 		int count = 0;
 		connect();
@@ -607,12 +637,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return weeks;
 	}
 	
 	public static Lab[] retrieveLabs(int weekID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Lab[] labs = null;
 		int count = 0;
 		connect();
@@ -650,12 +682,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return labs;
 	}
 	
 	public static File[] retrieveFileLab(int labID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		File[] files = null;
 		int count = 0;
 		connect();
@@ -690,12 +724,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return files;
 	}	
 	
 	public static Lecture[] retrieveLectures(int weekID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Lecture[] lectures = null;
 		int count = 0;
 		connect();
@@ -733,12 +769,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return lectures;
 	}
 	
 	public static Topic[] retrieveTopics(int lectureID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Topic[] topics = null;
 		int count = 0;
 		connect();
@@ -778,12 +816,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return topics;
 	}
 	
 	public static Program[] retrievePrograms(int topicID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Program[] programs = null;
 		int count = 0;
 		connect();
@@ -815,12 +855,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return programs;
 	}
 	
 	public static File[] retrieveFilePrograms(int programID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		File[] files = null;
 		int count = 0;
 		connect();
@@ -855,12 +897,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return files;
 	}
 	
 	public static Assignment[] retrieveAssignments(int courseID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Assignment[] assignments = null;
 		int count = 0;
 		connect();
@@ -911,12 +955,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return assignments;
 	}
 	
 	public static File[] retrieveFileAssignments(int assignmentID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		File[] files = null;
 		int count = 0;
 		connect();
@@ -951,12 +997,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return files;
 	}
 	
 	public static File[] retrieveGradingCriteriaFileAssignments(int assignmentID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		File[] files = null;
 		int count = 0;
 		connect();
@@ -991,12 +1039,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return files;
 	}
 	
 	public static File[] retrieveSolutionFileAssignments(int assignmentID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		File[] files = null;
 		int count = 0;
 		connect();
@@ -1031,12 +1081,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return files;
 	}	
 	
 	public static Deliverable[] retrieveDeliverables(int assignmentID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Deliverable[] deliverables = null;
 		int count = 0;
 		connect();
@@ -1077,12 +1129,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return deliverables;
 	}
 	
 	public static File[] retrieveFileDeliverables(int deliverableID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		File[] files = null;
 		int count = 0;
 		connect();
@@ -1117,12 +1171,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return files;
 	} 	
 	
 	public static Exam[] retrieveExams(int courseID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Exam[] exams = null;
 		int count = 0;
 		connect();
@@ -1158,12 +1214,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return exams;
 	}
 	
 	public static Test[] retrieveTests(int examID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		Test[] tests = null;
 		int count = 0;
 		connect();
@@ -1197,12 +1255,14 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return tests;
 	}
 	
 	public static File[] retrieveFileTests(int testID) {
+		ResultSet rs = null;
+		PreparedStatement ps = null;
 		File[] files = null;
 		int count = 0;
 		connect();
@@ -1237,7 +1297,7 @@ public class RetrieveSQL {
 			sqle.printStackTrace();
 		}
 		finally{
-			close();
+			close(rs, ps);
 		}
 		return files;
 	}

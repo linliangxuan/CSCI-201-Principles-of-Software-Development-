@@ -8,6 +8,7 @@ import com.google.gson.stream.JsonReader;
 
 import parser.Education;
 
+
 public class Main {
 
 	public static void main(String []args) {	
@@ -25,8 +26,23 @@ public class Main {
 //			e.printStackTrace();
 //		}
 		
+		Gson gson = new Gson();
+		try {
+			String fileName = "Assignment5.json";
+			InputStream fileContent = new FileInputStream(fileName);;
+			JsonReader jsonReader = new JsonReader(new InputStreamReader(fileContent));
+	    	Education education1 = gson.fromJson(jsonReader, Education.class);
+	    	System.out.println(gson.toJson(education1));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 		System.out.println("Start");
-		Education education = RetrieveSQL.retrieveEducation();
+		Education education2 = RetrieveSQL.retrieveEducation();
+		System.out.println(gson.toJson(education2));
+		//System.out.println(gson.toJson(education.getSchools()[0].getDepartments()[0].getCourses()[0]));
 		System.out.println("End");
 		
 	}
