@@ -15,6 +15,9 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 import java.sql.*;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 import parser.*;
 import parser.Time;
 
@@ -711,6 +714,16 @@ public class InsertSQL {
 	
 	public static void insertAssignment(Assignment assignment, int courseID) {
 		String number = assignment.getNumber();
+		if(number.equals("Final Project")) {
+			insertAssignmentFinal(assignment, courseID);
+		}
+		else {
+			insertAssignmentNormal(assignment, courseID);
+		}
+	}
+	
+	public static void insertAssignmentFinal(Assignment assignment, int courseID) {
+		String number = assignment.getNumber();
 		String assignedDate = assignment.getAssignedDate();
 		String dueDate = assignment.getDueDate();
 		String title = assignment.getTitle();
@@ -731,6 +744,94 @@ public class InsertSQL {
 			ps.setString(5, url);
 			ps.setString(6, gradePercentage);
 			ps.setInt(7, courseID);
+			ps.executeUpdate();
+			rs = ps.getGeneratedKeys();
+			if(rs != null && rs.next()) {
+				int assignmentID = rs.getInt(1);
+				if(files != null) {
+					for(int i = 0; i < files.length; i++) {
+						File file = files[i];
+						insertFileAssignment(file, assignmentID);
+					}
+				}
+				if(gradingCriteriaFiles != null) {
+					for(int i = 0; i < gradingCriteriaFiles.length; i++) {
+						File gradingCriteriaFile = gradingCriteriaFiles[i];
+						insertGradingCriteriaFileAssignment(gradingCriteriaFile, assignmentID);
+					}
+				}
+				if(solutionFiles != null) {
+					for(int i = 0; i < solutionFiles.length; i++) {
+						File solutionFile = solutionFiles[i];
+						insertSolutionFileAssignment(solutionFile, assignmentID);
+					}
+				}
+				if(deliverables != null) {
+					for(int i = 0; i < deliverables.length; i++) {
+						Deliverable deliverable = deliverables[i];
+						insertDeliverable(deliverable, assignmentID);
+					}
+				}
+            }
+			
+		} catch(SQLException sqle){
+			System.out.println("Assignment");
+			sqle.printStackTrace();
+		}
+		finally{
+			close();
+		}
+		
+	}
+	
+	public static void insertAssignmentNormal(Assignment assignment, int courseID) {
+		String number = assignment.getNumber();
+		String assignedDate = assignment.getAssignedDate();
+		String dueDate = assignment.getDueDate();
+		String title = assignment.getTitle();
+		String url = assignment.getUrl();
+		String gradePercentage = assignment.getGradePercentage();
+		File[] files = assignment.getFiles();
+		File[] gradingCriteriaFiles = assignment.getGradingCriteriaFiles();
+		File[] solutionFiles = assignment.getSolutionFiles();
+		Deliverable[] deliverables = assignment.getDeliverables();
+		
+		SimpleDateFormat format1 = new SimpleDateFormat("m-d-yyyy");
+		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-m-d");
+		Date tempAssignedDate;
+		Date formattedAssignedDate = null;
+		Date tempDueDate;
+		Date formattedDueDate = null;
+		try {
+			tempAssignedDate = new Date(format1.parse(assignedDate).getTime());
+			String formattedAssignedDateString = format2.format(tempAssignedDate);
+			formattedAssignedDate = Date.valueOf(formattedAssignedDateString);
+			
+			tempDueDate = new Date(format1.parse(dueDate).getTime());
+			String formattedDueDateString = format2.format(tempDueDate);
+			formattedDueDate = Date.valueOf(formattedDueDateString);
+			
+		} catch (java.text.ParseException e) {
+			e.printStackTrace();
+		}
+		int index = gradePercentage.indexOf("%");
+		String formattedGradePercentageString = gradePercentage.substring(0, index);
+		double formattedgradePercentage = Double.parseDouble(formattedGradePercentageString);
+		
+		connect();
+		try {
+			String query = "INSERT INTO ASSIGNMENT (number, assignedDate, dueDate, title, url, gradePercentage, courseID, formattedAssignedDate, formattedDueDate, formattedGradePercentage) VALUES (?,?,?,?,?,?,?,?,?,?)";
+			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, number);
+			ps.setString(2, assignedDate);
+			ps.setString(3, dueDate);
+			ps.setString(4, title);
+			ps.setString(5, url);
+			ps.setString(6, gradePercentage);
+			ps.setInt(7, courseID);
+			ps.setDate(8, formattedAssignedDate);
+			ps.setDate(9, formattedDueDate);
+			ps.setDouble(10, formattedgradePercentage);
 			ps.executeUpdate();
 			rs = ps.getGeneratedKeys();
 			if(rs != null && rs.next()) {
@@ -856,15 +957,34 @@ public class InsertSQL {
 		String title = deliverable.getTitle();
 		String gradePercentage = deliverable.getGradePercentage();
 		File[] files = deliverable.getFiles();
+		
+		SimpleDateFormat format1 = new SimpleDateFormat("m-d-yyyy");
+		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-m-d");
+		Date tempDueDate;
+		Date formattedDueDate = null;
+		try {
+			tempDueDate = new Date(format1.parse(dueDate).getTime());
+			String formattedDueDateString = format2.format(tempDueDate);
+			formattedDueDate = Date.valueOf(formattedDueDateString);
+			
+		} catch (java.text.ParseException e) {
+			e.printStackTrace();
+		}
+		int index = gradePercentage.indexOf("%");
+		String formattedGradePercentageString = gradePercentage.substring(0, index);
+		double formattedgradePercentage = Double.parseDouble(formattedGradePercentageString);
+		
 		connect();
 		try {
-			String query = "INSERT INTO DELIVERABLE (number, dueDate, title, gradePercentage, assignmentID) VALUES (?,?,?,?,?)";
+			String query = "INSERT INTO DELIVERABLE (number, dueDate, title, gradePercentage, assignmentID, formattedDueDate, formattedGradePercentage) VALUES (?,?,?,?,?,?,?)";
 			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, number);
 			ps.setString(2, dueDate);
 			ps.setString(3, title);
 			ps.setString(4, gradePercentage);
 			ps.setInt(5, assignmentID);
+			ps.setDate(6, formattedDueDate);
+			ps.setDouble(7, formattedgradePercentage);
 			ps.executeUpdate();
 			rs = ps.getGeneratedKeys();
 			if(rs != null && rs.next()) {

@@ -708,11 +708,11 @@ public class RetrieveSQL {
 					File file = new File();
 					
 					String number = rs.getString("number");
-					String type = rs.getString("type");
+					String title = rs.getString("title");
 					String url = rs.getString("url");
 					
 					file.setNumber(number);
-					file.setTitle(type);
+					file.setTitle(title);
 					file.setUrl(url);
 					files[index] = file;
 					index++;
@@ -881,11 +881,11 @@ public class RetrieveSQL {
 					File file = new File();
 					
 					String number = rs.getString("number");
-					String type = rs.getString("type");
+					String title = rs.getString("title");
 					String url = rs.getString("url");
 					
 					file.setNumber(number);
-					file.setTitle(type);
+					file.setTitle(title);
 					file.setUrl(url);
 					files[index] = file;
 					index++;
@@ -981,11 +981,11 @@ public class RetrieveSQL {
 					File file = new File();
 					
 					String number = rs.getString("number");
-					String type = rs.getString("type");
+					String title = rs.getString("title");
 					String url = rs.getString("url");
 					
 					file.setNumber(number);
-					file.setTitle(type);
+					file.setTitle(title);
 					file.setUrl(url);
 					files[index] = file;
 					index++;
@@ -1023,11 +1023,11 @@ public class RetrieveSQL {
 					File file = new File();
 					
 					String number = rs.getString("number");
-					String type = rs.getString("type");
+					String title = rs.getString("title");
 					String url = rs.getString("url");
 					
 					file.setNumber(number);
-					file.setTitle(type);
+					file.setTitle(title);
 					file.setUrl(url);
 					files[index] = file;
 					index++;
@@ -1065,11 +1065,11 @@ public class RetrieveSQL {
 					File file = new File();
 					
 					String number = rs.getString("number");
-					String type = rs.getString("type");
+					String title = rs.getString("title");
 					String url = rs.getString("url");
 					
 					file.setNumber(number);
-					file.setTitle(type);
+					file.setTitle(title);
 					file.setUrl(url);
 					files[index] = file;
 					index++;
@@ -1155,11 +1155,11 @@ public class RetrieveSQL {
 					File file = new File();
 					
 					String number = rs.getString("number");
-					String type = rs.getString("type");
+					String title = rs.getString("title");
 					String url = rs.getString("url");
 					
 					file.setNumber(number);
-					file.setTitle(type);
+					file.setTitle(title);
 					file.setUrl(url);
 					files[index] = file;
 					index++;
@@ -1281,11 +1281,11 @@ public class RetrieveSQL {
 					File file = new File();
 					
 					String number = rs.getString("number");
-					String type = rs.getString("type");
+					String title = rs.getString("title");
 					String url = rs.getString("url");
 					
 					file.setNumber(number);
-					file.setTitle(type);
+					file.setTitle(title);
 					file.setUrl(url);
 					files[index] = file;
 					index++;
