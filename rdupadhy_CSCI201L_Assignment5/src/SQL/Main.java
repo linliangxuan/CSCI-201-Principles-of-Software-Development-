@@ -1,3 +1,4 @@
+package SQL;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -25,9 +26,9 @@ public class Main {
 			JsonReader jsonReader = new JsonReader(new InputStreamReader(fileContent));
 	    	Education education = gson.fromJson(jsonReader, Education.class);
 	    	System.out.println(education.getSchools()[0].getName());
-	    	for(int i = 0; i < education.getSchools().length; i++) {
-	    		InsertSQL.insertSchool(education.getSchools()[i]);
-	    	}
+//	    	for(int i = 0; i < education.getSchools().length; i++) {
+//	    		InsertSQL.insertSchool(education.getSchools()[i]);
+//	    	}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

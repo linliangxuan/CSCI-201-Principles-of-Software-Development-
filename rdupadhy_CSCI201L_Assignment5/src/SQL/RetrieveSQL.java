@@ -1,28 +1,46 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+package SQL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
-
-import parser.*;
+import parser.Assignment;
+import parser.Assistant;
+import parser.Course;
+import parser.Deliverable;
+import parser.Department;
+import parser.Education;
+import parser.Exam;
+import parser.File;
+import parser.Lab;
+import parser.Lecture;
+import parser.Meeting;
+import parser.MeetingPeriod;
+import parser.Name;
+import parser.OfficeHour;
+import parser.Program;
+import parser.Schedule;
+import parser.School;
+import parser.StaffMember;
+import parser.Syllabus;
+import parser.Test;
+import parser.Textbook;
+import parser.Time;
+import parser.Topic;
+import parser.Week;
 
 public class RetrieveSQL {
 
+	private static String connectionQuery = "";
 	private static Connection conn = null;
-//	private static ResultSet rs = null;
-//	private static PreparedStatement ps = null;
 	
 	public static void connect() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/rdupadhy_201_site?user=root&password=apple&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/rdupadhy_201_site?user=root&password=apple&useSSL=false");
+			conn = DriverManager.getConnection(connectionQuery);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -49,7 +67,109 @@ public class RetrieveSQL {
 		}
 	}
 	
-	public static Education retrieveEducation() {
+	public static ArrayList<Assignment> assignmentsComparator(String sort, String connectionQueryArgument) {
+		connectionQuery = connectionQueryArgument;
+		ResultSet rs = null;
+		PreparedStatement ps = null;
+		ArrayList<Assignment> assignments = new ArrayList<Assignment>();
+		connect();
+		try {
+			if(sort.equals("dueDate")) {
+				ps = conn.prepareStatement("SELECT * FROM ASSIGNMENT WHERE ASSIGNMENT.number <> 'Final Project' ORDER BY ASSIGNMENT.formattedDueDate");
+			}
+			else if(sort.equals("assignedDate")) {
+				ps = conn.prepareStatement("SELECT * FROM ASSIGNMENT WHERE ASSIGNMENT.number <> 'Final Project' ORDER BY ASSIGNMENT.formattedAssignedDate");
+			}
+			else if(sort.equals("grade")) {
+				ps = conn.prepareStatement("SELECT * FROM ASSIGNMENT WHERE ASSIGNMENT.number <> 'Final Project' ORDER BY ASSIGNMENT.formattedGradePercentage");
+			}
+			rs = ps.executeQuery();
+			if(rs != null) {
+				while (rs != null && rs.next()) {
+					Assignment assignment = new Assignment();
+		
+					String number = rs.getString("number");
+					String assignedDate = rs.getString("assignedDate");
+					String dueDate = rs.getString("dueDate");
+					String title = rs.getString("title");
+					String url = rs.getString("url");
+					String gradePercentage = rs.getString("gradePercentage");
+					int assignmentID = rs.getInt(1);
+					File[] files = retrieveFileAssignments(assignmentID);
+					File[] gradingCriteriaFiles = retrieveGradingCriteriaFileAssignments(assignmentID);
+					File[] solutionFiles = retrieveSolutionFileAssignments(assignmentID);
+					Deliverable[] deliverables = retrieveDeliverables(assignmentID);
+					
+					assignment.setNumber(number);
+					assignment.setAssignedDate(assignedDate);
+					assignment.setDueDate(dueDate);
+					assignment.setTitle(title);
+					assignment.setUrl(url);
+					assignment.setGradePercentage(gradePercentage);
+					assignment.setFiles(files);
+					assignment.setGradingCriteriaFiles(gradingCriteriaFiles);
+					assignment.setSolutionFiles(solutionFiles);
+					assignment.setDeliverables(deliverables);
+				}
+			}
+		} catch(SQLException sqle) {
+			System.out.println("Schools");
+			sqle.printStackTrace();
+		}
+		finally {
+			close(rs, ps);
+		}
+		return assignments;	
+	}
+	
+	public static ArrayList<Deliverable> finalProjectComparator(String sort,  String connectionQueryArgument) {
+		connectionQuery = connectionQueryArgument;
+		ResultSet rs = null;
+		PreparedStatement ps = null;
+		ArrayList<Deliverable> deliverables = new ArrayList<Deliverable>();
+		connect();
+		try {
+			if(sort.equals("date")) {
+				ps = conn.prepareStatement("SELECT * FROM DELIVERABLE ORDER BY DELIVERABLE.formattedDueDate;");
+			}
+			else if(sort.equals("title")) {
+				ps = conn.prepareStatement("SELECT * FROM DELIVERABLE ORDER BY DELIVERABLE.title;");
+			}
+			else if(sort.equals("grade")) {
+				ps = conn.prepareStatement("SELECT * FROM DELIVERABLE ORDER BY DELIVERABLE.formattedGradePercentage;");
+			}
+			rs = ps.executeQuery();
+			if(rs != null) {
+				while (rs != null && rs.next()) {
+					Deliverable deliverable = new Deliverable();
+					
+					String number = rs.getString("number");
+					String dueDate = rs.getString("dueDate");
+					String title = rs.getString("title");
+					String gradePercentage = rs.getString("gradePercentage");
+					int deliverableID = rs.getInt(1);
+					File[] files = retrieveFileDeliverables(deliverableID);
+					
+					deliverable.setNumber(number);
+					deliverable.setDueDate(dueDate);
+					deliverable.setTitle(title);
+					deliverable.setGradePercentage(gradePercentage);
+					deliverable.setFiles(files);
+				}
+			}
+		} catch(SQLException sqle) {
+			System.out.println("Schools");
+			sqle.printStackTrace();
+		}
+		finally {
+			close(rs, ps);
+		}
+		return deliverables;	
+	}
+
+	
+	public static Education retrieveEducation(String connectionQueryArgument) {
+		connectionQuery = connectionQueryArgument;
 		Education education = new Education();
 		School[] schools = retrieveSchools();
 		education.setSchools(schools);
@@ -940,7 +1060,7 @@ public class RetrieveSQL {
 					assignment.setTitle(title);
 					assignment.setUrl(url);
 					assignment.setGradePercentage(gradePercentage);
-					assignment.setFiles(solutionFiles);
+					assignment.setFiles(files);
 					assignment.setGradingCriteriaFiles(gradingCriteriaFiles);
 					assignment.setSolutionFiles(solutionFiles);
 					assignment.setDeliverables(deliverables);

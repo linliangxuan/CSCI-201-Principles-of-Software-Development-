@@ -1,3 +1,4 @@
+package SQL;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -23,6 +24,7 @@ import parser.Time;
 
 public class InsertSQL {
 	
+	private static String connectionQuery = "";
 	private static Connection conn = null;
 	private static ResultSet rs = null;
 	private static PreparedStatement ps = null;
@@ -30,7 +32,8 @@ public class InsertSQL {
 	public static void connect() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/rdupadhy_201_site?user=root&password=apple&useSSL=false");
+//			conn = DriverManager.getConnection("jdbc:mysql://localhost/rdupadhy_201_site?user=root&password=apple&useSSL=false");
+			conn = DriverManager.getConnection(connectionQuery);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -58,7 +61,8 @@ public class InsertSQL {
 	}
 	
 	
-	public static void insertSchool(School school) {
+	public static void insertSchool(School school, String connectionQueryArgument) {
+		connectionQuery = connectionQueryArgument;
 		String name = school.getName();
 		String image = school.getImage();
 		Department[] departments = school.getDepartments();
@@ -722,68 +726,6 @@ public class InsertSQL {
 		}
 	}
 	
-	public static void insertAssignmentFinal(Assignment assignment, int courseID) {
-		String number = assignment.getNumber();
-		String assignedDate = assignment.getAssignedDate();
-		String dueDate = assignment.getDueDate();
-		String title = assignment.getTitle();
-		String url = assignment.getUrl();
-		String gradePercentage = assignment.getGradePercentage();
-		File[] files = assignment.getFiles();
-		File[] gradingCriteriaFiles = assignment.getGradingCriteriaFiles();
-		File[] solutionFiles = assignment.getSolutionFiles();
-		Deliverable[] deliverables = assignment.getDeliverables();
-		connect();
-		try {
-			String query = "INSERT INTO ASSIGNMENT (number, assignedDate, dueDate, title, url, gradePercentage, courseID) VALUES (?,?,?,?,?,?,?)";
-			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1, number);
-			ps.setString(2, assignedDate);
-			ps.setString(3, dueDate);
-			ps.setString(4, title);
-			ps.setString(5, url);
-			ps.setString(6, gradePercentage);
-			ps.setInt(7, courseID);
-			ps.executeUpdate();
-			rs = ps.getGeneratedKeys();
-			if(rs != null && rs.next()) {
-				int assignmentID = rs.getInt(1);
-				if(files != null) {
-					for(int i = 0; i < files.length; i++) {
-						File file = files[i];
-						insertFileAssignment(file, assignmentID);
-					}
-				}
-				if(gradingCriteriaFiles != null) {
-					for(int i = 0; i < gradingCriteriaFiles.length; i++) {
-						File gradingCriteriaFile = gradingCriteriaFiles[i];
-						insertGradingCriteriaFileAssignment(gradingCriteriaFile, assignmentID);
-					}
-				}
-				if(solutionFiles != null) {
-					for(int i = 0; i < solutionFiles.length; i++) {
-						File solutionFile = solutionFiles[i];
-						insertSolutionFileAssignment(solutionFile, assignmentID);
-					}
-				}
-				if(deliverables != null) {
-					for(int i = 0; i < deliverables.length; i++) {
-						Deliverable deliverable = deliverables[i];
-						insertDeliverable(deliverable, assignmentID);
-					}
-				}
-            }
-			
-		} catch(SQLException sqle){
-			System.out.println("Assignment");
-			sqle.printStackTrace();
-		}
-		finally{
-			close();
-		}
-		
-	}
-	
 	public static void insertAssignmentNormal(Assignment assignment, int courseID) {
 		String number = assignment.getNumber();
 		String assignedDate = assignment.getAssignedDate();
@@ -832,6 +774,68 @@ public class InsertSQL {
 			ps.setDate(8, formattedAssignedDate);
 			ps.setDate(9, formattedDueDate);
 			ps.setDouble(10, formattedgradePercentage);
+			ps.executeUpdate();
+			rs = ps.getGeneratedKeys();
+			if(rs != null && rs.next()) {
+				int assignmentID = rs.getInt(1);
+				if(files != null) {
+					for(int i = 0; i < files.length; i++) {
+						File file = files[i];
+						insertFileAssignment(file, assignmentID);
+					}
+				}
+				if(gradingCriteriaFiles != null) {
+					for(int i = 0; i < gradingCriteriaFiles.length; i++) {
+						File gradingCriteriaFile = gradingCriteriaFiles[i];
+						insertGradingCriteriaFileAssignment(gradingCriteriaFile, assignmentID);
+					}
+				}
+				if(solutionFiles != null) {
+					for(int i = 0; i < solutionFiles.length; i++) {
+						File solutionFile = solutionFiles[i];
+						insertSolutionFileAssignment(solutionFile, assignmentID);
+					}
+				}
+				if(deliverables != null) {
+					for(int i = 0; i < deliverables.length; i++) {
+						Deliverable deliverable = deliverables[i];
+						insertDeliverable(deliverable, assignmentID);
+					}
+				}
+            }
+			
+		} catch(SQLException sqle){
+			System.out.println("Assignment");
+			sqle.printStackTrace();
+		}
+		finally{
+			close();
+		}
+		
+	}
+	
+	public static void insertAssignmentFinal(Assignment assignment, int courseID) {
+		String number = assignment.getNumber();
+		String assignedDate = assignment.getAssignedDate();
+		String dueDate = assignment.getDueDate();
+		String title = assignment.getTitle();
+		String url = assignment.getUrl();
+		String gradePercentage = assignment.getGradePercentage();
+		File[] files = assignment.getFiles();
+		File[] gradingCriteriaFiles = assignment.getGradingCriteriaFiles();
+		File[] solutionFiles = assignment.getSolutionFiles();
+		Deliverable[] deliverables = assignment.getDeliverables();
+		connect();
+		try {
+			String query = "INSERT INTO ASSIGNMENT (number, assignedDate, dueDate, title, url, gradePercentage, courseID) VALUES (?,?,?,?,?,?,?)";
+			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, number);
+			ps.setString(2, assignedDate);
+			ps.setString(3, dueDate);
+			ps.setString(4, title);
+			ps.setString(5, url);
+			ps.setString(6, gradePercentage);
+			ps.setInt(7, courseID);
 			ps.executeUpdate();
 			rs = ps.getGeneratedKeys();
 			if(rs != null && rs.next()) {

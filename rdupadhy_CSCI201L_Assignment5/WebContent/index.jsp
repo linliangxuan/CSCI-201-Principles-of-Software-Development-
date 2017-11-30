@@ -7,7 +7,7 @@
 		<title>File Upload</title>
 		<script>
 			function validate() {
-				if(document.getElementById('file').value == "") {
+				if(document.getElementById('username').value == "" || document.getElementById('password').value == "" || document.getElementById('ipaddress').value == "") {
 					return false;
 				}
 				else {
@@ -18,11 +18,19 @@
 	</head>
 	<body>
 		<form method="post" action="Submit" enctype="multipart/form-data" onsubmit="return validate();">
-			Please choose a JSON file <br />
+			<br />
+			Enter MySQL username <input type="text" name="username" id="username" /> <br />
+			Enter MySQL password (can be blank) <input type="text" name="password" id="password" /> <br />
+			Enter MySQL ipaddress <input type="text" name="ipaddress" id="ipaddress" /> <br />
+			Choose whether to use SSL <input type="checkbox" name="ssl" value="ssl"> <br />
+			<br />
+			If you would like, you can upload a json file containing data you wish to insert into the database <br />
 			<input type="file" name="file" id="file" accept=".json" /><br />
-			<input type="submit" value="Upload File" /> <br /> 
+			<br />
 			<input type="radio" name="design" value="design1" checked> Design 1 <br />
-  			<input type="radio" name="design" value="design2"> Design 2 
+  			<input type="radio" name="design" value="design2"> Design 2 <br />
+  			<br />
+  			<input type="submit" value="Connect" /> <br /> 
 		</form>
 	</body>
 </html>
